@@ -37,28 +37,6 @@ let didWin = false;
 
 let hasDrawn = false;
 
-function drawGameBackground() {
-  //clear();
-  background(0, 0, 0);
-  noStroke();
-  fill(0, 255, 0);
-  ellipse(25, 450, 160);
-  fill(50, 200, 0);
-  ellipse(70, 480, 130);
-  fill(80, 160, 20);
-  ellipse(160, 480, 180);
-
-  fill(0, 255, 0);
-  ellipse(560, 450, 160);
-  fill(50, 200, 0);
-  ellipse(500, 480, 130);
-  fill(80, 160, 20);
-  ellipse(650, 480, 180);
-
-  fill(200, 255, 255);
-  rect(0, 500, width, 100);
-}
-
 function delay(milliseconds) {
   return new Promise((resolve) => {
     setTimeout(resolve, milliseconds);
@@ -215,8 +193,6 @@ function mouseClicked() {
   ) {
     state = "game";
     gameState = true;
-  } else if (state === "game" && y >= 200) {
-    state = "result";
   } else if (
     state === "result" &&
     mouseX > 285 &&
