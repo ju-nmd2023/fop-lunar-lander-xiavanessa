@@ -29,22 +29,15 @@ function startScreen() {
     50,
     450
   );
-  speed = startSpeed;
   hasLanded = false;
+  speed = startSpeed;
 }
 
 let didWin = false;
 
 let hasDrawn = false;
 
-function delay(milliseconds) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, milliseconds);
-  });
-}
-
 function gameScreen() {
-  clear();
   background(0, 0, 0);
   noStroke();
   rocket(x, y);
@@ -81,9 +74,10 @@ function gameScreen() {
     }
   }
 
+  console.log(speed);
+
   //Check if landed
   if (y * 2 + 68 >= 500) {
-    y = 215;
     hasLanded = true;
 
     if (speed <= 3) {
@@ -171,7 +165,7 @@ function resultScreen() {
 }
 
 let state = "start";
-let gameState = true;
+// let gameState = true;
 
 function draw() {
   if (state === "start") {
@@ -192,7 +186,7 @@ function mouseClicked() {
     state === "start"
   ) {
     state = "game";
-    gameState = true;
+    // gameState = true;
   } else if (
     state === "result" &&
     mouseX > 285 &&
@@ -201,7 +195,7 @@ function mouseClicked() {
     mouseY < 390
   ) {
     y = 70;
-    gameState = false;
+    // gameState = false;
     state = "start";
   }
 }
