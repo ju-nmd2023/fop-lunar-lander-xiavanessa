@@ -1,6 +1,7 @@
 function setup() {
   createCanvas(700, 600);
   background(0, 0, 0);
+  frameRate(30);
 }
 
 const startSpeed = 1;
@@ -15,11 +16,11 @@ let hasLanded = false;
 function startScreen() {
   background(0, 0, 255);
   fill(255, 255, 0);
-  rect(285, 200, 250, 90);
+  rect(285 - 50, 200, 250, 90);
 
   fill(255, 0, 0);
   textSize(50);
-  text("start", 360, 260);
+  text("start", 360 - 50, 260);
 
   textSize(18);
   fill(255, 255, 255);
@@ -38,7 +39,7 @@ let didWin = false;
 let hasDrawn = false;
 
 function gameScreen() {
-  background(0, 0, 0);
+  // background(0, 255, 0);
   noStroke();
   rocket(x, y);
   fill(0, 255, 0);
@@ -55,7 +56,7 @@ function gameScreen() {
   fill(80, 160, 20);
   ellipse(650, 480, 180);
 
-  fill(200, 255, 255);
+  fill(215, 200, 200);
   rect(0, 500, width, 100);
 
   if (!hasLanded) {
@@ -106,6 +107,7 @@ function rocketFire(x, y) {
 function rocket(x, y) {
   clear();
   push();
+  background(110, 100, 200);
   translate(x, y);
   fill(255, 255, 255);
   strokeWeight(0);
@@ -144,24 +146,24 @@ function resultScreen() {
   if (didWin) {
     background(0, 255, 0);
     fill(255, 255, 0);
-    rect(285, 200, 250, 90);
+    rect(285 - 50, 200, 250, 90);
     fill(0, 0, 0);
     textSize(45);
-    text("You win!", 295, 260);
+    text("You win!", 295 - 50, 260);
   } else {
     background(255, 0, 0);
     fill(255, 255, 0);
-    rect(285, 200, 250, 90);
+    rect(285 - 50, 200, 250, 90);
     fill(0, 0, 0);
     textSize(45);
-    text("You loose!", 295, 260);
+    text("You loose!", 295 - 50, 260);
   }
 
   fill(255, 255, 255);
-  rect(285, 300, 250, 90);
+  rect(285 - 50, 300, 250, 90);
   fill(0, 0, 0);
   textSize(45);
-  text("Restart", 315, 360);
+  text("Restart", 315 - 50, 360);
 }
 
 let state = "start";
@@ -179,8 +181,8 @@ function draw() {
 
 function mouseClicked() {
   if (
-    mouseX > 285 &&
-    mouseX < 535 &&
+    mouseX > 285 - 50 &&
+    mouseX < 535 - 50 &&
     mouseY > 200 &&
     mouseX > 290 &&
     state === "start"
@@ -189,8 +191,8 @@ function mouseClicked() {
     // gameState = true;
   } else if (
     state === "result" &&
-    mouseX > 285 &&
-    mouseX < 535 &&
+    mouseX > 285 - 50 &&
+    mouseX < 535 - 50 &&
     mouseY > 300 &&
     mouseY < 390
   ) {
