@@ -39,7 +39,6 @@ let didWin = false;
 let hasDrawn = false;
 
 function gameScreen() {
-  // background(0, 255, 0);
   noStroke();
   rocket(x, y);
   fill(0, 255, 0);
@@ -156,7 +155,7 @@ function resultScreen() {
     rect(285 - 50, 200, 250, 90);
     fill(0, 0, 0);
     textSize(45);
-    text("You loose!", 295 - 50, 260);
+    text("You lose!", 295 - 50, 260);
   }
 
   fill(255, 255, 255);
@@ -167,7 +166,6 @@ function resultScreen() {
 }
 
 let state = "start";
-// let gameState = true;
 
 function draw() {
   if (state === "start") {
@@ -188,7 +186,6 @@ function mouseClicked() {
     state === "start"
   ) {
     state = "game";
-    // gameState = true;
   } else if (
     state === "result" &&
     mouseX > 285 - 50 &&
@@ -197,39 +194,6 @@ function mouseClicked() {
     mouseY < 390
   ) {
     y = 70;
-    // gameState = false;
     state = "start";
   }
 }
-
-// function draw() {
-//   if (
-//     mouseClicked &&
-//     mouseX > 285 &&
-//     mouseX < 535 &&
-//     mouseY > 200 &&
-//     mouseX > 290 &&
-//     state === "start"
-//   ) {
-//     if (gameState) {
-//       state = "game";
-//     } else {
-//       gameState = true;
-//     }
-//   }
-// }
-
-// function draw() {
-//   if (state === "game" && y >= 200 && gameState === "true") {
-//     state = "result";
-//   } else if (
-//     state === "result" &&
-//     mouseX > exitButtonX &&
-//     mouseX < exitButtonX + 250 &&
-//     mouseY > exitButtonY &&
-//     mouseY < exitButtonY + 90
-//   ) {
-//     state = "start";
-//     gameState = false;
-//   }
-// }
