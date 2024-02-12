@@ -30,8 +30,6 @@ function startScreen() {
     50,
     450
   );
-  hasLanded = false;
-  speed = startSpeed;
 }
 
 let didWin = false;
@@ -194,6 +192,8 @@ function mouseClicked() {
     mouseY < 390
   ) {
     y = 70;
+    hasLanded = false;
+    speed = startSpeed;
     state = "start";
   }
 }
